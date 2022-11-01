@@ -15,3 +15,5 @@ D: Automatic Control cell. 0 by default. Automatically equals 1 when the interns
 E: Manual control cell: 0 by defailt. Manually set to 1 when the tutor has answered the email.
 
 The first row of the sheet are column headers, thus the code only runs from the row number 2. It is assumed the last row is number 50.
+
+Run the function enviarCorreos().
