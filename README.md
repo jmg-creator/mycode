@@ -16,4 +16,5 @@ E: Manual control cell: 0 by defailt. Manually set to 1 when the tutor has answe
 
 The first row of the sheet are column headers, thus the code only runs from the row number 2. It is assumed the last row is number 50.
 
-Run the function enviarCorreos().
+The subject and body of each email can be customized in the function enviarCorreo(candidato).
+Run the function enviarCorreos() to send the list of emails from the App Script page.
