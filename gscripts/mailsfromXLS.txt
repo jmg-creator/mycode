@@ -1,0 +1,56 @@
+function enviarCorreos() {
+ const libro = SpreadsheetApp.getActiveSpreadsheet();
+ libro.setActiveSheet(libro.getSheetByName("Listado"));
+ const hoja = SpreadsheetApp.getActiveSheet();
+ const filas = hoja.getRange("A2:E50").getValues();
+ var max = ultimafila(filas) ;
+ for ( var ifila= 0; ifila < max ; ifila++) {
+   hoja.getRange(1,5).setValue(max);
+   var candidato = crearCandidato(filas[ifila]);
+   if (candidato.eval >= 1 & candidato.recibida == 0) {
+    
+    enviarCorreo(candidato);  
+    candidato.eval++;
+    var valor= candidato.eval;
+    hoja.getRange(ifila+2,4).setValue(valor);
+ 
+   } else {}
+  
+ }
+}
+	
+function crearCandidato(datosFila) {
+  const candidato = {
+    nombre: datosFila[0],
+    email: datosFila[1],
+    fecha: datosFila[2],
+    eval: datosFila[3],
+    recibida: datosFila[4]
+  };
+  return candidato;
+}
+
+	
+function enviarCorreo(candidato) { 
+  if (candidato.email == "") return;
+  var asunto;
+  var mensaje;
+    asunto = "Cuestionario de valicación: " + candidato.nombre ;
+    mensaje = "<p>Buenos días,</p>" 
+    mensaje += "<p>Un saludo,</p>" ;
+    mensaje += "<p>Dr. yojuliomg</p>" ;
+ 
+    MailApp.sendEmail({
+    to: candidato.email,
+    subject: asunto,
+    htmlBody: mensaje 
+  })
+}
+
+function ultimafila(filas) {
+for ( var ifila= 0; ifila < 50 ; ifila++) {
+   var candidato = crearCandidato(filas[ifila]);
+  if(candidato.nombre == "") return ifila+1
+}
+}
+
