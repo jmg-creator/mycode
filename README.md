@@ -17,6 +17,6 @@ C: Finish date of the internship
 D: Automatic Control cell. 0 by default. Automatically equals 1 when the internship has finished (current date is > C). 
    If D>=1 and E=0, it Increases +1 every time the Script is run, in order to show how many times the email has been sent to an specific mail.
 
-E: Manual control cell: 0 by defailt. Manually set to 1 when the tutor has answered the email.
+E: Manual control cell: 0 by default. Manually set to 1 when the tutor has answered the email.
 
 
